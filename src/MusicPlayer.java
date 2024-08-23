@@ -13,6 +13,10 @@ public class MusicPlayer {
         playFile(soundPath, Constants.DEFAULT_BETWEEN_SAMPLES_DELAY);
     }
 
+    public void playSoundWithDelay(final String soundPath, long delay) {
+        playFile(soundPath, delay);
+    }
+
     private void playFile(final String filePath, final long delay) {
         try {
             File musicPath = new File(filePath);
@@ -25,9 +29,9 @@ public class MusicPlayer {
 
                 //JOptionPane.showMessageDialog(null, "Press OK to stop the music");
                 TimeUnit.MILLISECONDS.sleep(delay);
-                clip.stop();
+                //clip.stop();
             } else {
-                System.out.println("Cannot find the file");
+                System.out.println("Cannot find the file " + filePath);
             }
 
         } catch(final Exception ex) {
@@ -49,7 +53,7 @@ public class MusicPlayer {
 
                     clips.add(clip);
                 } else {
-                    System.out.println("Cannot find the file");
+                    System.out.println("Cannot find the file " + sound);
                 }
             }
 
